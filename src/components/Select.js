@@ -1,6 +1,11 @@
-export function Select() {
+export function Select({ updateFilterExhibit }) {
+
+    function handleChange(e) {
+        updateFilterExhibit(e.target.value);
+    }
+
     return (
-        <select name="exhibits" id="exhibit-select" onChange="changeExhibit()">
+        <select name="exhibits" id="exhibit-select" onChange={(e) => handleChange(e)}>
             <option value="all">All Exhibits</option>
             <option value="africa-trail">Africa Trail</option>
             <option value="amazonia">Amazonia</option>
