@@ -8,7 +8,7 @@ export function Article() {
     const [filterExhibit, setFilterExhibit] = useState("all");
     const [filterArrivalTime, setFilterArrivalTime] = useState("08:00");
     const [filterDepartureTime, setFilterDepartureTime] = useState("18:00");
-    const [sort, setSort] = useState("exhibit");
+    const [sort, setSort] = useState("time");
 
     const updateFilterExhibit = (newValue) => {
         setFilterExhibit(newValue);

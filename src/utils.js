@@ -22,7 +22,3 @@ export function transformAnimalString(animalString) {
         .replaceAll("&amp;", "&")
         .replaceAll("&#039;", "'");
 }
-
-export function expandDemo(demo) {
-    console.log("expandDemo");
-}

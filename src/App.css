@@ -28,12 +28,19 @@ header {
   border-radius: 5px;
   padding: 10px;
   margin: 10px auto;
-  height: 50px;
   width: 66%;
   display: grid;
   grid-template-columns: 3fr 21fr 1fr;
   grid-template-areas: "time exhibit collapse" "time description ." "time swiper ." "time animal .";
   transition: height 0.3s ease;
+}
+
+.demo[data-expanded="false"] {
+  height: 50px;
+}
+
+.demo[data-expanded="true"] {
+  height: 300px;
 }
 
 #filters {
@@ -201,11 +208,11 @@ p {
   content: "+";
 }
 
-.collapsible::before {
+.collapsible[data-expanded="false"]::before {
   content: "+";
 }
 
-.collapsible.collapsed::before {
+.collapsible[data-expanded="true"]::before {
   content: "-";
 }
 

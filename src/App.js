@@ -1,9 +1,6 @@
 import "./App.css";
 import { Article } from "./components/Article";
 
-import animalData from "./animalData.json";
-import imageData from "./imageData.json";
-
 export default function App() {
   return (
     <>

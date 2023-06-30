@@ -1,22 +1,29 @@
-import { transformTimeString } from "../utils";
+import { useState } from "react";
 import { transformExhibitString } from "../utils";
 import { Time } from "./Time";
 import { Exhibit } from "./Exhibit";
 import { Description } from "./Description";
 import { Collapsible } from "./Collapsible";
+import { Swiper } from "./Swiper";
 
 export function Demo({ demo }) {
+    const [expanded, setExpanded] = useState(false);
+
+    const updateExpanded = () => {
+        setExpanded(!expanded);
+    }
+
     return (
         <div
             className="demo"
-            data-expand="false"
-            data-time={transformTimeString(demo.Time)}
             data-exhibit={transformExhibitString(demo.Exhibit)}
+            data-expanded={expanded}
         >
             <Time time={demo.Time} />
             <Exhibit exhibit={demo.Exhibit} />
             <Description description={demo.Demo} />
-            <Collapsible demo={demo} />
+            <Collapsible onClick={updateExpanded} expanded={expanded}/>
+            <Swiper exhibit={demo.Exhibit} expanded={expanded}/>
         </div>
     );
 }

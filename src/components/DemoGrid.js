@@ -37,7 +37,7 @@ export function DemoGrid({ filterExhibit, filterArrivalTime, filterDepartureTime
         <section className="demo-grid" >
             {
                 copyDemos.filter(demoFilter).map((demo, index) => (
-                    <Demo key={index} demo={demo} filterExhibit={filterExhibit} filterArrivalTime={filterArrivalTime} filterDepartureTime={filterDepartureTime} />
+                    <Demo key={index} demo={demo}/>
                 ))
             }
         </section >
