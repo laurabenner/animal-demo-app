@@ -18,11 +18,12 @@ export function Article() {
 
     const updateArrivalTime = (newValue) => {
         setFilterArrivalTime(newValue);
+        console.log(newValue);
     };
 
     const updateDepartureTime = (newValue) => {
         setFilterDepartureTime(newValue);
-    }
+    };
 
     return (
         <article>

@@ -1,38 +1,215 @@
-.App {
-  text-align: center;
+#demo-grid {
+  grid-area: demos;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Verdana, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h1 {
+  margin: 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+  text-align: center;
+  background-color: #084C61;
+  margin: 0 0 20px;
+  padding: 100px 0 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.demo {
+  background-color: #FBF7EF;
+  border: 5px solid #FBF7EF;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px auto;
+  height: 50px;
+  width: 66%;
+  display: grid;
+  grid-template-columns: 3fr 21fr 1fr;
+  grid-template-areas: "time exhibit collapse" "time description ." "time swiper ." "time animal .";
+  transition: height 0.3s ease;
+}
+
+#filters {
+  text-align: center;
+}
+
+[data-exhibit] a {
+  text-decoration-line: none;
+}
+
+[data-exhibit] a:hover {
+  text-decoration-line: underline;
+}
+
+[data-exhibit="elephant-trails"] a {
+  color: rgb(53, 144, 243);
+}
+
+[data-exhibit="american-bison"] a {
+  color: rgb(79, 12, 99);
+}
+
+[data-exhibit="bird-house"] a {
+  color: rgb(91, 143, 110);
+}
+
+[data-exhibit="amazonia"] a {
+  color: #F26419;
+}
+
+[data-exhibit="small-mammal-house"] a {
+  color: #87B37A;
+}
+
+[data-exhibit="africa-trail"] a {
+  color: #2F4858;
+}
+
+[data-exhibit="primates"] a {
+  color: #F6AE2D;
+}
+
+[data-exhibit="reptile-discovery-center"] a {
+  color: #987175;
+}
+
+[data-exhibit="american-trail"] a {
+  color: #06893C;
+}
+
+[data-exhibit="asia-trail"] a {
+  color: #084C61;
+}
+
+[data-exhibit="great-cats"] a {
+  color: #F7ACCF;
+}
+
+[data-exhibit="kids-farm"] a {
+  color: #C62606;
+}
+
+[data-exhibit="claws-paws-pathway"] a {
+  color: #4CB5AE;
+}
+
+.demo .time {
+  grid-area: time;
+}
+
+.demo .exhibit {
+  grid-area: exhibit;
+}
+
+.demo .description {
+  grid-area: description;
+}
+
+p {
+  display: inline;
+}
+
+.swiper-container {
+  grid-area: swiper;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-wrapper {
+  height: 100px !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 10px;
+  min-height: 100px;
+}
+
+.animal-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.swiper-slide:hover .animal-image {
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
+}
+
+.animal-div {
+  grid-area: animal;
+  margin-top: 20px;
+}
+
+.swiper-slide a {
+  display: inline-block;
+  z-index: 100;
+}
+
+.swiper-button-prev {
+  transform: translateY(40%);
+  left: 0 !important;
+}
+
+.swiper-button-next {
+  transform: translateY(40%);
+  right: 0 !important;
+}
+
+.swiper-button-prev::after {
+  left: 5px;
+  color: black;
+}
+
+.swiper-button-next::after {
+  right: 5px;
+  color: black;
+}
+
+:root {
+  --swiper-navigation-size: 20px !important;
+}
+
+.collapsible {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  align-items: right;
+  font-size: 16px;
+  color: black;
+  grid-area: collapse;
+  content: "+";
+}
+
+.collapsible::before {
+  content: "+";
+}
+
+.collapsible.collapsed::before {
+  content: "-";
+}
+
+.animal-label {
+  display: block;
+  margin-bottom: 10px;
 }
