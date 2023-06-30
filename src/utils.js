@@ -26,11 +26,3 @@ export function transformAnimalString(animalString) {
 export function expandDemo(demo) {
     console.log("expandDemo");
 }
-
-export function sortByTime() {
-    console.log("sortByTime");
-}
-
-export function sortByExhibit() {
-    console.log("sortByExhibit");
-}
