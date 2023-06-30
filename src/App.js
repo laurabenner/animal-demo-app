@@ -9,6 +9,8 @@ export default function App() {
       </header>
 
       <Article />
+
+      <footer></footer>
     </>
   );
 }

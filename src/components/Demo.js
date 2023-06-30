@@ -4,7 +4,7 @@ import { Time } from "./Time";
 import { Exhibit } from "./Exhibit";
 import { Description } from "./Description";
 import { Collapsible } from "./Collapsible";
-import { Swiper } from "./Swiper";
+import { AnimalSwiper } from "./AnimalSwiper";
 
 export function Demo({ demo }) {
     const [expanded, setExpanded] = useState(false);
@@ -23,7 +23,7 @@ export function Demo({ demo }) {
             <Exhibit exhibit={demo.Exhibit} />
             <Description description={demo.Demo} />
             <Collapsible onClick={updateExpanded} expanded={expanded}/>
-            <Swiper exhibit={demo.Exhibit} expanded={expanded}/>
+            <AnimalSwiper exhibit={demo.Exhibit} expanded={expanded}/>
         </div>
     );
 }
