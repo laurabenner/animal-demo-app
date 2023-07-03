@@ -22,3 +22,8 @@ export function transformAnimalString(animalString) {
         .replaceAll("&amp;", "&")
         .replaceAll("&#039;", "'");
 }
+
+export function getAnimalUrl(animal) {
+    let url = "https://nationalzoo.si.edu/animals/" + animal.toLowerCase().replaceAll("'", "").replaceAll(" ", "-");
+    return url;
+}

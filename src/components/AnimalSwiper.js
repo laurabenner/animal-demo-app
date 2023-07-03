@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
+import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -7,8 +8,10 @@ import 'swiper/css/navigation';
 import animalData from "../animalData.json";
 import imageData from "../imageData.json";
 
+import { AnimalImage } from "./AnimalImage"
 import { transformAnimalString } from "../utils";
 import { transformExhibitString } from "../utils";
+import { getAnimalUrl } from '../utils';
 
 let animalList = [];
 let exhibitList = [];
@@ -32,42 +35,34 @@ dataArray.forEach(animal => {
 });
 
 export function AnimalSwiper({ exhibit, expanded }) {
+    const [link, setLink] = useState("");
+
+    const updateLink = (newValue) => {
+        setLink(newValue);
+    }
+
     if (expanded) {
         let animals = animalList.filter(animal => { return exhibitList[animalList.indexOf(animal)] === transformExhibitString(exhibit); });
         let images = imageList.filter(image => { return exhibitList[imageList.indexOf(image)] === transformExhibitString(exhibit); });
 
         return (
-            <Swiper slidesPerView={6} modules={[Navigation]} navigation={true}>
-                <p slot="container-start" className="animal-label">Animals in this exhibit: </p>
-                {
-                    images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <img className="swiper-image" src={image} alt={animals[index]}></img>
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
-            /**
-            <div className="swiper-container">
-                <p className="animal-label">Animals in this exhibit: </p>
-                <div className="swiper-wrapper">
-                    <div className="swiper-slide">
-                        {
-                            images.map((image, index) => (
-                                <img className="swiper-image" src={image} alt={animals[index]}></img>
-                            ))
-                        }
-                    </div>
-                </div>
-                <div className="button-prev"></div>
-                <div className="button-next"></div>
+            <>
+                <Swiper slidesPerView={6} modules={[Navigation]} navigation={true}>
+                    <p slot="container-start" className="animal-label">Animals in this exhibit: </p>
+                    {
+                        images.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <AnimalImage image={image} animal={animals[index]} updateLink={updateLink}/>
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
                 <div className="animal-div">
-                    <p className="animal-text">
-                        <a className="animal-link" href=" ">Link</a>
+                    <p className="animal-text">Animal Selected: 
+                        <a className="animal-link" href={getAnimalUrl(link)}>{link}</a>
                     </p>
                 </div>
-            </div>
-             */
+            </>
         );
     } else {
         return null;
